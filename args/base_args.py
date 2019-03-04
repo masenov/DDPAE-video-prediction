@@ -15,7 +15,7 @@ class BaseArgs:
     self.parser.add_argument('--gpus', type=str, default='0', help='visible GPU ids, separated by comma')
 
     # data
-    self.parser.add_argument('--dset_dir', type=str, default=os.path.join(os.environ['HOME'], 'slowbro'))
+    self.parser.add_argument('--dset_dir', type=str, default=os.path.join(os.environ['HOME']))
     self.parser.add_argument('--dset_name', type=str, default='moving_mnist')
     self.parser.add_argument('--image_size', type=int, nargs='+', default=[64, 64])
     self.parser.add_argument('--n_frames_input', type=int, default=10)
@@ -43,7 +43,7 @@ class BaseArgs:
                              help='Baseline: (if set to 1) independent prediction of each component.')
 
     # ckpt and logging
-    self.parser.add_argument('--ckpt_dir', type=str, default=os.path.join(os.environ['HOME'], 'slowbro', 'ckpt'),
+    self.parser.add_argument('--ckpt_dir', type=str, default=os.path.join(os.environ['HOME'], 'ckpt'),
                              help='the directory that contains all checkpoints')
     self.parser.add_argument('--ckpt_name', type=str, default='ckpt', help='checkpoint name')
     self.parser.add_argument('--log_every', type=int, default=400, help='log every x steps')
@@ -72,6 +72,9 @@ class BaseArgs:
     elif opt.dset_name == 'bouncing_balls':
       opt.n_channels = 1
       opt.image_size = (128, 128)
+    elif opt.dset_name == 'bouncing_ball':
+      opt.n_channels = 1
+      opt.image_size = (64, 64)
     else:
       raise NotImplementedError
 

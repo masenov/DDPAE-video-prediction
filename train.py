@@ -7,6 +7,8 @@ import models
 import utils
 from test import evaluate
 
+
+
 opt, logger, vis = utils.build(is_train=True, tb_dir='tb_train')
 train_loader = data.get_data_loader(opt)
 # Validation set

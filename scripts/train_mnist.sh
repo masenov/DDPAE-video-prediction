@@ -1,8 +1,9 @@
 #!/bin/bash
-python train.py \
+python3.6m train.py \
   --gpus 0 \
   --n_workers 4 \
-  --ckpt_dir $HOME/slowbro/ckpt \
+  --ckpt_dir $HOME/DL/DDPAE-video-prediction/ckpt \
+  --dset_dir $HOME/DL/PhysVideo/models/ddpae/datasets/ \
   --dset_name moving_mnist \
   --evaluate_every 20 \
   --lr_init 1e-3 \
