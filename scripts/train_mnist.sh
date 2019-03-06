@@ -4,7 +4,9 @@ python3.6m train.py \
   --n_workers 4 \
   --ckpt_dir $HOME/DL/DDPAE-video-prediction/ckpt \
   --dset_dir $HOME/DL/PhysVideo/models/ddpae/datasets/ \
-  --dset_name moving_mnist \
+  --dset_name bouncing_ball_numpy \
+  --n_frames_input 10 \
+  --n_frames_output 10 \
   --evaluate_every 20 \
   --lr_init 1e-3 \
   --lr_decay 1 \

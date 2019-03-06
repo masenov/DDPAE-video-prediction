@@ -1,3 +1,5 @@
+import sys
+import os
 from PIL import Image
 import torch.utils.data as data
 import torchvision.transforms as transforms
@@ -6,6 +8,11 @@ import data.video_transforms as vtransforms
 from .moving_mnist import MovingMNIST
 from .bouncing_balls import BouncingBalls
 from .bouncing_ball import BouncingBall
+sys.path.insert(0, os.getcwd()+'/../../../')
+sys.path.insert(0, '../../../')
+sys.path.insert(0, '/home/martin/DL/PhysVideo/')
+print (sys.path)
+from physicsdata.bouncing_ball import BouncingBallNumpy
 
 def get_data_loader(opt):
   print (opt.dset_name)
@@ -23,6 +30,9 @@ def get_data_loader(opt):
   elif opt.dset_name == 'bouncing_ball':
     transform = transforms.Compose([vtransforms.ToTensor()])
     dset = BouncingBall()
+
+  elif opt.dset_name == 'bouncing_ball_numpy':
+    dset = BouncingBallNumpy(opt.n_frames_input, opt.n_frames_output, opt.image_size[0])
 
 
 
