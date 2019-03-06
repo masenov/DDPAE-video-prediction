@@ -11,6 +11,7 @@ from .bouncing_ball import BouncingBall
 sys.path.insert(0, os.getcwd()+'/../../../')
 sys.path.insert(0, '../../../')
 sys.path.insert(0, '/home/martin/DL/PhysVideo/')
+sys.path.insert(0, '/data/DL/PhysVideo/')
 print (sys.path)
 from physicsdata.bouncing_ball import BouncingBallNumpy
 
