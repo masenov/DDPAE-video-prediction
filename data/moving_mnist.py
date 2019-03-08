@@ -38,7 +38,8 @@ class MovingMNIST(data.Dataset):
       if num_objects[0] != 2:
         self.mnist = load_mnist(root)
       else:
-        self.dataset = load_fixed_set(root, False)
+        #self.dataset = load_fixed_set(root, False)
+        self.mnist = load_mnist(root)
     self.length = int(1e4) if self.dataset is None else self.dataset.shape[1]
 
     self.is_train = is_train
@@ -118,7 +119,12 @@ class MovingMNIST(data.Dataset):
       # Generate data on the fly
       images = self.generate_moving_mnist(num_digits)
     else:
-      images = self.dataset[:, idx, ...]
+      #images = self.dataset[:, idx, ...]
+      # Sample number of objects
+      num_digits = random.choice(self.num_objects)
+      # Generate data on the fly
+      images = self.generate_moving_mnist(num_digits)
+
 
     if self.transform is not None:
       images = self.transform(images)
